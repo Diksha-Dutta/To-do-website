@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminders</title>
+  <link rel="stylesheet" type="text/css" href="/TODO.css">
+</head>
+<body>
+     <header>
+         <div class="toggle-container" id="theme-toggle">
+           <div class="toggle-circle"></div>
+           <span class="toggle-text">LIGHT</span>
+         </div>
+         <div class="auth-buttons">
+           <p class="greeting">Hello, <%= user %>!</p>
+           <button><a href="/login.html">Logout</a></button>
+         </div>
+       </header>
+  <div class="reminder-container">
+    <h1 class="reminder">Reminders for <%= user %></h1>
+    <h2 class="reminder">Tasks Due Tomorrow</h2>
+    <% if (tasks.length === 0) { %>
+      <p>No tasks due tomorrow.</p>
+    <% } else { %>
+      <ul id="task-list">
+        <% tasks.forEach(task => { %>
+          <li class="task-item <%= task.done ? 'done' : '' %>">
+            <input type="checkbox" class="task-checkbox" data-id="<%= task._id %>" <%= task.done ? 'checked' : '' %> disabled>
+            <span class="task-text"><%= task.text %> (Due: <%= new Date(task.date).toLocaleDateString() %>)</span>
+          </li>
+        <% }) %>
+      </ul>
+      <p><a href="/tasks">View All Tasks</a> |<a href="/dates">View Due Dates</a>| <a href="/">Back to Home</a></p>
+    <% } %>
+  </div>
+  <script src="/reminders.js"></script>
+</body>
+</html>

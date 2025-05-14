@@ -1,0 +1,309 @@
+body {
+  font-family: 'Times New Roman';
+  background-color: #fdf4ff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  color:#5C2C78;
+  font-weight:bold;
+ 
+}
+
+
+body.dark {
+  font-family: 'Times New Roman';
+  background-color: #fdf4ff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  color:#F4C9E8;
+  font-weight:bold;
+}
+
+.calendar-container {
+  width: 400px;
+  background: #CAA9DE;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+body.dark .calendar-container {
+  width: 400px;
+  background: #5C2C78;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+
+
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header button {
+  background-color: #68467d;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark .calendar-header button {
+  background-color: #CEB9DB;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-days, .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+  margin-top: 10px;
+  
+}
+
+.calendar-days div {
+  font-weight: bold;
+}
+
+.calendar-grid div {
+  height: 40px;
+  min-height: 40px; 
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #e5cbf5;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; 
+  color: #5C2C78;
+}
+
+
+body.dark .calendar-grid div {
+ 
+  background-color: #804A82;
+  color:white;
+
+}
+
+.calendar-grid div:hover {
+  background-color: #e6ccf2;
+}
+
+body.dark .calendar-grid div:hover {
+  background-color: #511972;
+}
+
+
+.calendar-grid .marked {
+  background-color: #a0c2dd !important;
+  color: #5C2C78;
+  font-weight: bold;
+}
+
+body.dark .calendar-grid .marked{
+  background-color:#5d4cbc !important;
+  color: white
+}
+
+
+.toggle-container {
+  background-color: rgba(206, 185, 219, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0px 2px 6px rgba(190, 129, 234, 0.5);
+  display: flex;
+  align-items: center;
+  padding: 10px 15px ;
+  border-radius: 20px;
+  gap: 10px;
+  font-weight: bold;
+  width:80px;
+  float:right;
+  cursor: pointer;
+
+}
+
+body.dark .toggle-container {
+  background-color: rgba(80, 80, 80, 0.4);
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.7),
+    inset 0px 2px 6px rgba(100, 100, 100, 0.5);
+    
+}
+
+.toggle-circle {
+  width: 20px;
+  height: 20px;
+  background-color: #f7e782;
+  border-radius: 50%;
+  transition: background-color 0.5s smooth;
+  
+}
+
+body.dark .toggle-text {
+  transform: translateX(-30px) ;
+  transition: background-color 0.5s smooth;
+}
+body.dark .toggle-circle {
+  background-color: #5740d8;
+  transition: background-color 0.5s smooth;
+  transform: translateX(60px);
+}
+#notes-section {
+  margin-top: 20px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f3e6fb;
+  box-shadow: 0 4px 8px rgba(92, 44, 120, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.note {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #CAA9DE;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(92, 44, 120, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.note input[type="text"] {
+  flex: 1;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdf4ff;
+  color: #5C2C78;
+}
+
+.note button {
+  background-color: #68467d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.note button:hover {
+  background-color: #5C2C78;
+}
+
+body.dark #notes-section {
+  background-color: #3d294e;
+}
+
+body.dark .note {
+  background-color: #5C2C78;
+}
+
+body.dark .note input[type="text"] {
+  background-color: #eee1f6;
+  color: #2c1240;
+}
+
+body.dark .note button {
+  background-color: #F4C9E8;
+  color: #2c1240;
+}
+
+body.dark .note button:hover {
+  background-color: #d0a0cc;
+}
+
+
+.auth-buttons1 {
+  display: flex;
+  gap: 15px;
+  justify-content:center;
+  padding-top:5px;
+}
+
+.auth-buttons{
+  display: flex;
+  gap: 15px;
+ 
+}
+
+
+.auth-buttons button ,.auth-buttons1 button{
+  background-color: rgba(206, 185, 219, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0px 2px 6px rgba(190, 129, 234, 0.5);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+body.dark .auth-buttons button , body.dark .auth-buttons1 button{
+  background-color: rgba(44, 38, 38, 0.4);
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.7),
+    inset 0px 2px 6px rgba(100, 100, 100, 0.5);
+  color: white;
+}
+
+.calendar-container a{
+  color: #452257;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight:bold;
+}
+.calendar-container a:visited{
+  color:#e74f4fbb ;
+}
+
+.calendar-container a:hover{
+  color: #3698f4;
+  text-decoration: underline;
+}
+
+
+
+body.dark .calendar-container a{
+    color: #b083c8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+body.dark .calendar-container a:visited{
+  color:#d2aaaabb ;
+}
+
+body.dark .calendar-container a:hover {
+  color: #8fc0ee;
+  text-decoration: underline;
+}

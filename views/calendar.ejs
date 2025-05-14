@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Calendar</title>
+  <link rel="stylesheet" type="text/css" href="/calendar.css" />
+</head>
+<body>
+  
+  <div class="calendar-container">
+   <header>
+         <div class="toggle-container" id="theme-toggle">
+           <div class="toggle-circle"></div>
+           <span class="toggle-text">LIGHT</span>
+         </div>
+         <div class="auth-buttons">
+           <p class="greeting">Hello, <%= user %>!</p>
+           </div>
+       </header>
+    <br><br><br>
+    <div class="calendar-header">
+      <button id="prev-month">&lt;</button>
+      <h2 id="month-year"><%= monthYear %></h2>
+      <button id="next-month">&gt;</button>
+    </div>
+    <div class="calendar-days">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div class="calendar-grid" id="calendar-grid"></div>
+    <div id="notes-section"><%= notesSection %></div>
+    <div class="auth-buttons1">
+          
+           <button><a href="/login.html">Logout</a></button>
+         </div>
+  </div>
+
+  <script src="/calendar.js"></script>
+</body>
+</html>

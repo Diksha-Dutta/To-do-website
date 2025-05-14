@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+     <html>
+     <head>
+       <title>Task Assignment - Lilac Hues</title>
+       <link rel="stylesheet" type="text/css" href="/TODO.css">
+     </head>
+     <body>
+       <header>
+         <div class="toggle-container" id="theme-toggle">
+           <div class="toggle-circle"></div>
+           <span class="toggle-text">LIGHT</span>
+         </div>
+         <div class="auth-buttons">
+           <p class="greeting">Hello, <%= user %>!</p>
+           <button><a href="/login.html">Logout</a></button>
+         </div>
+       </header>
+       <div class="todo-container">
+         <h2>Task Assignment</h2>
+         <form id="add-task-form">
+           <input type="text" id="task-input" placeholder="Enter a new task" required>
+           <button type="submit">Add Task</button>
+         </form>
+         <ul id="task-list">
+           <% tasks.forEach(task => { %>
+             <li class="task-item <%= task.done ? 'done' : '' %>">
+               <input type="checkbox" class="task-checkbox" data-id="<%= task._id %>" <%= task.done ? 'checked' : '' %>>
+               <span class="task-text"><%= task.text %></span>
+               <button class="delete-task" data-id="<%= task._id %>">Delete</button>
+             </li>
+           <% }) %>
+         </ul>
+         <p><a href="/dates">View Due Dates</a> | <a href="/">Back to Home</a></p>
+       </div>
+       <script src="/tasks.js"></script>
+     </body>
+     </html>

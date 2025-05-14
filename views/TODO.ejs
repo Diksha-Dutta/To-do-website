@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TO-DO WEBSITE</title>
+  <link rel="stylesheet" type="text/css" href="/TODO.css">
+</head>
+<body>
+  <header>
+    <div class="toggle-container" id="theme-toggle">
+      <div class="toggle-circle"></div>
+      <span class="toggle-text">LIGHT</span>
+    </div>
+    <div class="auth-buttons">
+      <% if (message) { %>
+        <div class="alert alert-success">
+          <%= message %>
+        </div>
+      <% } %>
+      <% if (user) { %>
+        <p class="greeting">Hello, <%= user %>!</p>
+        <button><a href="/login.html">Logout</a></button>
+      <% } else { %>
+        <button><a href="/signup.html">SIGNUP</a></button>
+        <button><a href="/login.html">LOGIN</a></button>
+      <% } %>
+    </div>
+  </header>
+
+  <header class="hd2">
+    <div class="welcome">
+      <p class="text">WELCOME TO LILAC HUES - A TO-DO LIST APP TO HELP SCHEDULE YOUR TASKS</p>
+    </div>
+  </header>
+
+  <section class="features">
+   
+    <div class="grid-box"><a href="/tasks">TASK ASSIGNMENT</a><br><img src="Screenshot 2025-05-13 142010.png" height="60px" width="60px"></div>
+    <div class="grid-box"><a href="/calendar">CALENDAR</a><br><img src="Screenshot 2025-05-13 142857.png" height="60px" width="60px"></div>
+    <div class="grid-box"><a href="/dates">SETTING DUE DATES</a><br><img src="Screenshot 2025-05-14 130434.png" height="60px" width="60px"></div>
+    <div class="grid-box"><a href="/reminders">REMINDERS</a><br><img src="Screenshot 2025-05-14 125950.png" height="60px" width="60px"></div>
+  </section>
+
+  <section class="categories">
+    <h2 class="section-heading">CATEGORIES</h2>
+    <div class="grid-box1"><a href="/personal.html">PERSONAL</a></div>
+    <div class="grid-box1"><a href="/work.html">WORK</a></div>
+    <div class="grid-box1"><a href="/shopping.html">SHOPPING LIST</a></div>
+    <div class="grid-box1"><a href="/gift.html">GIFT LIST</a></div>
+  </section>
+
+  <footer class="about-section">
+    <h2>ABOUT US</h2>
+    <p>
+      Lilac Hues is more than just a to-do list—it's a gentle nudge toward a more organized and fulfilling life. Built with calm aesthetics and user-friendly features, our app helps you manage your tasks, events, and goals in a soothing and distraction-free space.
+    </p>
+    <p>
+      Whether you're a busy professional, a student, or just someone who enjoys staying on top of daily routines, Lilac Hues is here to support your journey. From color-coded task categories to personalized reminders and an intuitive layout, our mission is to make productivity feel effortless and beautiful.
+    </p>
+    <p>
+      Join thousands of users embracing clarity, focus, and balance—one task at a time.
+    </p>
+  </footer>
+
+  <script>
+    // Theme Toggle Functionality
+    const toggleContainer = document.getElementById('theme-toggle');
+    const toggleText = document.querySelector('.toggle-text');
+    const body = document.body;
+
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark');
+      toggleText.textContent = 'DARK';
+    } else {
+      body.classList.remove('dark');
+      toggleText.textContent = 'LIGHT';
+    }
+
+    // Toggle theme
+    toggleContainer.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      toggleText.textContent = isDark ? 'DARK' : 'LIGHT';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
